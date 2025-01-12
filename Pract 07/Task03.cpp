@@ -1,0 +1,39 @@
+#include <iostream>
+
+int gdc(int a, int b)
+{
+    if (a == b)
+        return a;
+
+    while (a != b)
+    {
+        if (a > b)
+        {
+            a -= b;
+        }
+        else
+        {
+            b -= a;
+        }
+    }
+    return a;
+}
+
+//Task03
+void fraction(int a, int b)
+{
+    while (gdc(a, b) != 1)
+    {
+        int k = gdc(a, b);
+        a /= k;
+        b /= k;
+    }
+    std::cout << a << "/" << b;
+}
+
+int main()
+{
+    int n1, n2;
+    std::cin >> n1 >> n2;
+    fraction(n1, n2);
+}
